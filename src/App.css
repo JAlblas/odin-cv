@@ -1,8 +1,23 @@
 #root {
-  max-width: 1280px;
+  min-width: 1280px;
+  height: 100vh;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+#container {
+  height: 100%;
+  display: flex;
+}
+
+#forms {
+  flex: 1;
+}
+
+#render {
+  background-color: #fff;
+  flex: 1;
 }
 
 .logo {
