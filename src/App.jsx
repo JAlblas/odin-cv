@@ -7,23 +7,38 @@ import ExperienceSection from "./components/ExperienceSection";
 import CVRender from "./components/CVRender";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [name, setName] = useState("Jasper");
+  const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleTelephoneChange = (e) => {
+    setTelephone(e.target.value);
+  };
 
   return (
     <div id="container">
       <div id="forms">
-        <GeneralSection />
-        <EducationalSection />
+        <GeneralSection
+          name={name}
+          handleNameChange={handleNameChange}
+          email={email}
+          handleEmailChange={handleEmailChange}
+          telephone={telephone}
+          handleTelephoneChange={handleTelephoneChange}
+        />
+        <EducationalSection name={name} />
         <ExperienceSection />
       </div>
 
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-
-      <CVRender />
+      <CVRender name={name} email={email} telephone={telephone} />
     </div>
   );
 }
