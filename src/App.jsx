@@ -11,6 +11,19 @@ function App() {
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
 
+  const [educations, setEductions] = useState([
+    {
+      school: "Test school",
+      study: "Test study",
+      startDate: "startDate",
+      endDate: "endDate",
+    },
+  ]);
+  const [school, setSchool] = useState("");
+  const [study, setStudy] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
@@ -34,7 +47,7 @@ function App() {
           telephone={telephone}
           handleTelephoneChange={handleTelephoneChange}
         />
-        <EducationalSection name={name} />
+        <EducationalSection educations={educations} />
         <ExperienceSection />
       </div>
 
