@@ -36,6 +36,33 @@ function App() {
     setTelephone(e.target.value);
   };
 
+  const handleSchoolChange = (e) => {
+    setSchool(e.target.value);
+  };
+
+  const handleStudyChange = (e) => {
+    setStudy(e.target.value);
+  };
+
+  const handleStartDateChange = (e) => {
+    setStartDate(e.target.value);
+  };
+
+  const handleEndDateChange = (e) => {
+    setEndDate(e.target.value);
+  };
+
+  const saveEducation = ({ school, study, startDate, endDate }) => {
+    setEductions([
+      ...educations,
+      { school: school, study: study, startDate: startDate, endDate: endDate },
+    ]);
+    setSchool("");
+    setStudy("");
+    setStartDate("");
+    setEndDate("");
+  };
+
   return (
     <div id="container">
       <div id="forms">
@@ -47,7 +74,18 @@ function App() {
           telephone={telephone}
           handleTelephoneChange={handleTelephoneChange}
         />
-        <EducationalSection educations={educations} />
+        <EducationalSection
+          educations={educations}
+          saveEducation={saveEducation}
+          handleSchoolChange={handleSchoolChange}
+          school={school}
+          handleStudyChange={handleStudyChange}
+          study={study}
+          handleStartDateChange={handleStartDateChange}
+          startDate={startDate}
+          handleEndDateChange={handleEndDateChange}
+          endDate={endDate}
+        />
         <ExperienceSection />
       </div>
 
